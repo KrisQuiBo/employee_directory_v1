@@ -170,9 +170,9 @@ const prevEmpl = () => {
         console.log("clicked left");
       scrollModal();
     }
-const currentModal(n) => {
-  displayModal(modIndex = n);
-}
+// const currentModal(n) => {
+//   displayModal(modIndex = n);
+// }
 const nextEmpl = () => {
   if(modIndex === 11) {
     return false;
@@ -192,7 +192,6 @@ const nextEmpl = () => {
   });
 
   const scrollModal = () => {
-    // overlay.classList.remove("hidden");
     displayModal(modIndex);
 
     // event.preventDefault();
@@ -203,17 +202,17 @@ const nextEmpl = () => {
   //     overlay.classList.add("hidden");
   //   }
   // });
-
-
-list.addEventListener("keyup", function() {
-    var inputWord = list.value.toLowerCase();
-
-    for (i=0; i < employees.length; i++) {
-      var searchableName = document.getElementsByTagName("H2")[i].textContent.toLowerCase();
-      if (searchableName.indexOf(inputWord) > -1) {
-      //   employees[i].style.display = '';
-      // } else {
-      //   employees[i].style.display = 'none';
-        }
-    }
-});
+//
+//
+// list.addEventListener("keyup", function() {
+//     var inputWord = list.value.toLowerCase();
+//
+//     for (i=0; i < employees.length; i++) {
+//       var searchableName = document.getElementsByTagName("H2")[i].textContent.toLowerCase();
+//       if (searchableName.indexOf(inputWord) > -1) {
+//       //   employees[i].style.display = '';
+//       // } else {
+//       //   employees[i].style.display = 'none';
+//         }
+//     }
+// });
