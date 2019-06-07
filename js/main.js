@@ -11,9 +11,10 @@ const modal = document.querySelector(".modal");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".close")
 const list = document.querySelector(".list");
-const card = document.querySelector(".card");
+// let card = document.querySelectorAll("div .card");
 let modWindow = document.getElementById("modWindow");
 let modIndex = modalContainer.getAttribute("data-index");
+let phone = document.querySelector(".phone");
 
 // async version
 // const request = async (url) => {
@@ -53,12 +54,6 @@ function displayEmployees(personData) {
     employees.forEach((employee, index) => {
 
     let { email, location: { city, street, state, postcode}, login: {username}, name, phone, picture } = employees[index] || {};
-
-    // let name = employee.name;
-    // let email = employee.email;
-    // let city = employee.location.city;
-    // let picture = employee.picture;
-    // let username = employee.login.username;
 
     employeeHTML += `
       <div class="card" data-index="${index}">
@@ -108,19 +103,8 @@ function displayEmployees(personData) {
 function displayModal(index) {
   let modalHTML = '';
 
-      let name = employees[index].name;
-      let email = employees[index].email;
-      let street = employees[index].location.street;
-      let city = employees[index].location.city;
-      let postcode = employees[index].location.postcode;
-      let state = employees[index].location.state;
-      let picture = employees[index].picture;
-      let username = employees[index].login.username;
-      let dob = employees[index].dob;
-      let phone = employees[index].phone;
-
-      // let { login: {username}, name, dob, phone, email, location: { city, street, state, postcode}, picture } = employees[index] || {};
-      // let date = new Date(dob.date);
+      let { login: {username}, name, dob, phone, email, location: { city, street, state, postcode}, picture } = employees[index] || {};
+      let date = new Date(dob.date);
 
       modalHTML +=  `
      <div class="modal-window" id="modWindow" data-index="${index}">
@@ -144,46 +128,38 @@ function displayModal(index) {
 `;
 overlay.classList.remove("hidden");
 modalContainer.innerHTML = modalHTML;
-} //end display modal
 
-
-//
-//functions for modal
-//
-const displayIt = (e) => {
-  const card = e.target.closest(".card");
-  let index = card.getAttribute('data-index');
-  if (e.target.closest(".card")) {
-    displayModal(index);
-  }
-
-// Scroll modal
+////// Scroll modal
 let rtBtn = document.getElementById("right");
 let lftBtn = document.getElementById("left");
 
+  lftBtn.addEventListener('click', prevEmpl);
+  rtBtn.addEventListener('click', nextEmpl);
+} //end display modal
+
+/////functions for modal
 const prevEmpl = () => {
-  // if(modIndex === 10) {
-  //   return false;
-  //   }
-      modIndex--;
-        console.log(modIndex);
-        console.log("clicked left");
+  if(modIndex === 0) {
+    return false;
+    }
+      index--;
       scrollModal();
     }
-// const currentModal(n) => {
-//   displayModal(modIndex = n);
-// }
+
 const nextEmpl = () => {
   if(modIndex === 11) {
     return false;
   }
-  modIndex++;
-  console.log(modIndex);
-  console.log("clicked right");
+  index++;
   scrollModal();
 }
-  lftBtn.addEventListener('click', prevEmpl);
-  rtBtn.addEventListener('click', nextEmpl);
+let index;
+const displayIt = (e) => {
+  const empCard = e.target.closest(".card");
+  index = empCard.getAttribute('data-index');
+  if (empCard) {
+    displayModal(index);
+  }
 } //end displayIt
 
   gridContainer.addEventListener('click', displayIt);
@@ -191,17 +167,15 @@ const nextEmpl = () => {
     overlay.classList.add("hidden");
   });
 
-  const scrollModal = () => {
-    displayModal(modIndex);
-
-    // event.preventDefault();
+  let scrollModal = () => {
+    displayModal(index);
   }
 
-  // modalClose.addEventListener('keydown', (e) =>{
-  // KeyboardEvent: key='Escape' | code='Escape'  if(e.key===27) {
-  //     overlay.classList.add("hidden");
-  //   }
-  // });
+  modal.addEventListener('keydown', (e) => {
+    if(e.key===27) {
+      overlay.classList.add("hidden");
+    }
+  });
 //
 //
 // list.addEventListener("keyup", function() {
