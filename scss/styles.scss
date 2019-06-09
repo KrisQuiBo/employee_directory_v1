@@ -193,7 +193,7 @@ $breakpoints: (
                                 ----*/
     .overlay {
       position: absolute;
-      top: 0;
+      top: -25px;
       left: 0;
       right: 0;
       bottom: 0;
@@ -202,13 +202,25 @@ $breakpoints: (
     .modal {
       width: 350px;
       margin: 15% auto auto;
-      position: relative;
+      position: fixed;
       text-align: center;
       background: white;
       border-left: .2rem double #557;
       border-radius: 1rem;
       padding: 1% 2%;
-
+      left: 5%;
+      top: 0;
+      right: 5%;
+      @media (min-width: $media-break-tab) {
+        width: 350px;
+        margin: 15% auto auto;
+        position: relative;
+        text-align: center;
+        background: white;
+        border-left: .2rem double #557;
+        border-radius: 1rem;
+        padding: 1% 2%;
+      }
     }
     .modal hr {
       border: .5px solid green;
