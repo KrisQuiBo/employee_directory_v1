@@ -78,7 +78,7 @@ hr {
   width: inherit;
 }
 
-button, input[type=submit], input[type=reset] {
+button {
   background: none;
   color: inherit;
   border: none;
@@ -125,6 +125,7 @@ img {
 }
 
 .card {
+  cursor: pointer;
   width: 95%;
   max-width: 2680px;
   margin-left: auto;
@@ -204,10 +205,6 @@ input:focus {
   top: 1%;
 }
 
-.name {
-  display: inline;
-}
-
 .hidden {
   display: none;
 }
@@ -233,14 +230,5 @@ input:focus {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
 }
-
-arrow:hover {
-  transform: scale(1.1);
-  transition: transform 0.5s ease;
-}
-
-/*---
-  ----- Modal  -----
-                              ---*/
 
 /*# sourceMappingURL=styles.css.map */
