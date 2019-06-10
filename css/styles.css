@@ -196,18 +196,6 @@ input:focus {
   top: 0;
   right: 5%;
 }
-@media (min-width: 1024px) {
-  .modal {
-    width: 350px;
-    margin: 15% auto auto;
-    position: relative;
-    text-align: center;
-    background: white;
-    border-left: 0.2rem double #557;
-    border-radius: 1rem;
-    padding: 1% 2%;
-  }
-}
 
 .modal hr {
   border: 0.5px solid green;
