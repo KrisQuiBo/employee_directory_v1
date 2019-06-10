@@ -196,7 +196,7 @@ input:focus {
   top: 0;
   right: 5%;
 }
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .modal {
     width: 350px;
     margin: 15% auto auto;

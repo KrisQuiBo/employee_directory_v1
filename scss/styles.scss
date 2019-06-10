@@ -211,7 +211,7 @@ $breakpoints: (
       left: 5%;
       top: 0;
       right: 5%;
-      @media (min-width: $media-break-tab) {
+      @media (min-width: $media-break-desk) {
         width: 350px;
         margin: 15% auto auto;
         position: relative;
