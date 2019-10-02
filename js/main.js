@@ -20,7 +20,9 @@ let headerTwo = document.getElementsByTagName("h2");
 
 // get api data
 fetch(randomAPI)
-  .then(res => res.json())
+  // .then(res => res.json())
+  // .then(data => console.log(data));
+    .then(res => res.json())
   .then(res => res.results)
   .then(displayEmployees)
   .catch(err => {
@@ -74,7 +76,7 @@ function displayModal(index) {
           <p class="username">${username}</p>
           <p class="email">${email}</p>
           <hr>
-          <p class="address">${street}</p>
+          <p class="address">${street.number} ${street.name}</p>
           <p> ${city}, ${state} ${postcode}</p>
           <p class="phone">${phone}</p>
           <hr>
